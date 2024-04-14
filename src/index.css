@@ -1,5 +1,151 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --clr-primary-400: hsl(158, 36%, 37%);
+  --clr-primary-500: hsl(158, 36%, 20%);
+  --clr-secondary-200: hsl(30, 38%, 92%);
+  --clr-netural-900: hsl(212, 21%, 14%);
+  --clr-netural-400: hsl(228, 12%, 48%);
+  --clr-netural-100: hsl(0, 0%, 100%);
+
+  --ff-accent: "Fraunces", serif;
+  --ff-base: "Montserrat", sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: var(--ff-base);
+  color: var(--clr-netural-400);
+  font-weight: var(--fw-regular);
+  background-color: var(--clr-secondary-200);
+  -webkit-font-smoothing: antialiased;
+
   line-height: 1.5;
-  font-weight: 400;
+  font-size: 0.85;
+  padding: 1rem;
+  display: grid;
+  place-content: center;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+#root {
+  isolation: isolate;
+}
+
+.product {
+  --content-padding: 1.5rem;
+  --content-spacing: 1rem;
+
+  display: grid;
+  background-color: var(--clr-netural-100);
+  overflow: hidden;
+  border-radius: 0.5rem;
+  max-width: 600px;
+}
+
+@media (min-width: 600px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.product-content {
+  padding: var(--content-padding);
+  display: grid;
+  gap: 1.1rem;
+}
+
+.category {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 0.8rem;
+}
+.header {
+  font-family: var(--ff-accent);
+  font-weight: var(--fw-bold);
+  color: var(--clr-netural-900);
+  font-size: 2rem;
+}
+
+.flex-group {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.price {
+  font-weight: var(--fw-bold);
+  color: var(--clr-primary-400);
+  font-size: 2.5rem;
+}
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.9rem;
+  background-color: var(--clr-primary-400);
+  color: var(--clr-netural-100);
+  font-weight: var(--fw-bold);
+  font-size: 0.9rem;
+}
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url("./assets/icon-cart.svg");
+  width: 15px;
+  height: 16px;
+}
+.button:hover {
+  background-color: var(--clr-primary-500);
 }
